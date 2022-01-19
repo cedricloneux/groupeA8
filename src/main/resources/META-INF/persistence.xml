@@ -8,6 +8,7 @@
                       transaction-type="JTA">
 
 		<class>be.helha.aemt.entities.User</class>
+		<class>be.helha.aemt.entities.Activity</class>
         <!--<class>be.helha.aemt.entities.Publication</class>
         <class>be.helha.aemt.entities.Utilisateur</class> -->
 

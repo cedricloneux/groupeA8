@@ -97,8 +97,8 @@ public class UserDAO extends DAO< User >
     @Override
     public List< User > findAll()
     {
-        String loginQuery = "SELECT u FROM User u";
-        TypedQuery< User > query = em.createQuery( loginQuery, User.class );
+        String selectQuery = "SELECT u FROM User u";
+        TypedQuery< User > query = em.createQuery( selectQuery, User.class );
         return query.getResultList();
     }
 }

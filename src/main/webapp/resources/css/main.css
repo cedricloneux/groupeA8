@@ -296,6 +296,70 @@ body {
   }
 }
 
-#connectBtn {
-	
+/* entity table*/
+
+.entityTable {   
+   border-collapse:collapse;
+   border:1px solid black;
+}
+
+.entityTableHeader {
+   text-align:center;
+   background:none repeat scroll 0 0 #7d7d7d;
+   border-bottom:1px solid black;  
+   padding:2px;
+   font-size:25px;
+   padding-left:20px;
+   padding-right:20px;
+}
+
+.entityTableOddRow {
+   text-align:center;
+   background:none repeat scroll 0 0 #e0e0e0;	
+   border:1px solid black;
+   font-size:20px;
+   padding-top:5px;
+   padding-bottom:5px;
+}
+
+.entityTableEvenRow {
+   text-align:center;
+   background:none repeat scroll 0 0 #b8b6b6;
+   font-size:20px;
+   padding-top:5px;
+   padding-bottom:5px;
+}
+
+/* table */
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 15px 30px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
 }

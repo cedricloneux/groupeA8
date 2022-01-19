@@ -17,10 +17,33 @@
 	<div class="content">
 		<h1>Pleine conscience</h1>
 		
-		<h2>En présentiel</h2>
+		
+		<h2>Liste des activités </h2>	
 	
-	
-		<h2>En ligne</h2>
+		<h:dataTable value = "#{ activityControl.showActivityListMindfullness() }" var = "activity"
+			   styleClass = "styled-table">
+	        <h:column>
+	            <f:facet name="header">Date</f:facet>
+	            #{activity.date}
+	        </h:column>
+	        
+	        <h:column>
+	            <f:facet name="header">Nom</f:facet>
+	            #{activity.title}
+	        </h:column>
+	        
+	        <h:column>
+            	<f:facet name="header">Addresse</f:facet>
+           		#{activity.place}
+       		 </h:column>
+	        
+	        
+	        <h:column>
+	            <f:facet name="header"></f:facet>
+	            <a href="detailActivity.xhtml?facets-redirect=true&amp;id=#{activity.id}">View</a>
+	        </h:column>
+		</h:dataTable>
+		
 		
 
 	</div>
