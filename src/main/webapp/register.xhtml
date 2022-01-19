@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <title>Inscription</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet name="css/main.css"/>
+</h:head>
+<h:body>
+
+	
+	<div class="content">
+		
+		<div class="login-box">
+   			<h2>Inscription</h2>
+			<p:panel header="Login From">
+	  			<h:form>
+	    			<div class="user-box">
+	    				<h:inputText value="#{userControl.user.login}" pt:placeholder="email" type="email" requiredMessage="Veuillez entrer une addresse mail"
+    validatorMessage="Format email invalide">
+   							<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+   						</h:inputText>
+	    			</div>
+	    			<div class="user-box">
+	      				<h:inputSecret value="#{userControl.user.password}" type="password" pt:placeholder="Mot de passe"/>
+	    			</div>
+	    			<h:commandButton value="Register" action="#{userControl.createNewUser()}"/>
+       				 <input type="reset" value="Reset" />
+	  			</h:form>
+  			</p:panel>
+		</div>
+	
+       
+	</div>
+	
+	<button onclick="location.href='index.xhtml'">Retour site</button>
+	
+	
+    
+</h:body>
+</html>

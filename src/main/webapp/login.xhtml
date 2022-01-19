@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Connexion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet name="css/main.css"/>
+</h:head>
+<h:body>
+
+	
+	<div class="content">
+	
+		<div class="login-box">
+   			<h2>Se connecter</h2>
+			<p:panel header="Login From">
+	  			<form method="POST" action="j_security_check">
+	    			<div class="user-box">
+	      				<input type="email" name="j_username" placeholder="email"/>
+	    			</div>
+	    			<div class="user-box">
+	      				<input type="password" name="j_password" placeholder="Mot de passe"/>
+	    			</div>
+	    			<input type="submit" value="connexion" />
+       				 <input type="reset" value="Reset" />
+	  			</form>
+  			</p:panel>
+		</div>
+        
+	</div>
+	
+	<button class="connectBtn" role="button" onclick="location.href='register.xhtml'">S'inscrire</button>
+	
+	<button onclick="location.href='index.xhtml'">Retour site</button>
+	
+	
+	
+</h:body>
+</html>

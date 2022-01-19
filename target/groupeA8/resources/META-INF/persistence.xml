@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence">
+
+
+    <!-- pU = Persistence Unit -->
+    <persistence-unit name="pUgroupeA8"
+                      transaction-type="JTA">
+
+		<class>be.helha.aemt.entities.User</class>
+        <!--<class>be.helha.aemt.entities.Publication</class>
+        <class>be.helha.aemt.entities.Utilisateur</class> -->
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <jta-data-source>jdbc/groupeA8</jta-data-source>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver"
+                value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url"
+                value="jdbc:mysql://34.253.160.66:3306/dba8" />
+                
+            <property
+                    name="javax.persistence.schema-generation.database.action"
+                    value="create"/>
+            <!-- value="drop-and-create" -->
+
+            <property name="javax.persistence.jdbc.user"
+                value="ga8" />
+            <property name="javax.persistence.jdbc.password"
+                value="5874" />
+        </properties>
+    </persistence-unit>
+
+</persistence>
