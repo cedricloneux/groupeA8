@@ -6,17 +6,33 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-    <title>Inscription</title>
+    <title>admin utilisateurs</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <h:outputStylesheet name="css/main.css"/>
 </h:head>
 <h:body>
 
+	<h1>Gestion des utilisateurs</h1>
 	
-	<div class="content">
-		
-		<div class="login-box">
-   			<h2>Inscription</h2>
+	<h2>Liste des utilisateurs</h2>	
+	
+	<h:dataTable value = "#{ userControl.showUserList() }" var = "user"
+		   styleClass = "styled-table">
+	       <h:column>
+	           <f:facet name="header">e-mail</f:facet>
+	           #{user.login}
+	       </h:column>
+	       
+	       <h:column>
+	           <f:facet name="header"></f:facet>
+	           <h:commandButton value="SUPPRIMER" action="#{ userControl.deleteUser(user) }"/>
+	           <!--  <a href="detailActivity.xhtml?facets-redirect=true&amp;id=#{activity.id}">Remove</a> -->
+	       </h:column>
+	</h:dataTable>
+	
+	
+	<div class="login-box" id="adminAdduser">
+   			<h2>Ajouter un utilisateur</h2>
 			<p:panel header="Login From">
 	  			<h:form>
 	    			<div class="user-box">
@@ -28,16 +44,17 @@
 	    			<div class="user-box">
 	      				<h:inputSecret value="#{userControl.user.password}" type="password" pt:placeholder="Mot de passe"/>
 	    			</div>
-	    			<h:commandButton value="Inscription" action="#{userControl.createNewUser()}"/>
+	    			<h:commandButton value="Ajouter" action="#{ userControl.addNewUser() }"/>
        				 <input type="reset" value="Reset" />
 	  			</h:form>
   			</p:panel>
 		</div>
+		
+	<br/><br/>
 	
-       
-	</div>
+	<button onclick="location.href='menuAdmin.xhtml'">Retour</button>
 	
-	<button onclick="location.href='index.xhtml'">Retour site</button>
+	
 	
 	
     

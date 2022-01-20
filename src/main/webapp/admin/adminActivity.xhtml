@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <title>Inscription</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet name="css/main.css"/>
+    <h:outputStylesheet name="css/addActivity.css"/>
+</h:head>
+<h:body>
+
+	<h1>Gestion des activités</h1>
+	
+	<h2>Liste des activités</h2>
+	
+	<h:dataTable value = "#{ activityControl.showActivityList() }" var = "activity"
+			   styleClass = "styled-table">
+	        <h:column>
+	            <f:facet name="header">Date</f:facet>
+	            #{activity.date}
+	        </h:column>
+	        
+	        <h:column>
+	            <f:facet name="header">Nom</f:facet>
+	            #{activity.title}
+	        </h:column>
+	        
+	        <h:column>
+            	<f:facet name="header">Addresse</f:facet>
+           		#{activity.place}
+       		 </h:column>
+       		 
+       		 <h:column>
+            	<f:facet name="header">Type</f:facet>
+           		#{activity.type}
+       		 </h:column>
+	        
+	        
+	        <h:column>
+	            <f:facet name="header"></f:facet>
+	            <a href="adminDetailActivity.xhtml?facets-redirect=true&amp;id=#{activity.id}">View</a>
+	        </h:column>
+	        
+	        <h:column>
+	            <f:facet name="header"></f:facet>
+	            <h:commandButton value="SUPPRIMER" action="#{ activityControl.deleteActivity(activity) }"/>
+	        </h:column>
+	        
+		</h:dataTable>
+	
+
+	<div class="container">  
+  <h:form id="contact">
+    <h3>Ajouter une activité</h3>
+    <fieldset>
+      <h:inputText value="#{activityControl.activity.title}" type="text" pt:placeholder="Nom de l'activité"/>
+    </fieldset>
+    <fieldset>
+    	<h:inputText value="#{activityControl.activity.place}" type="text" pt:placeholder="Addresse"/>
+    </fieldset>
+    <fieldset>
+      <h:inputText value="#{activityControl.activity.date}" type="text" pt:placeholder="Date"/>
+    </fieldset>
+    <fieldset>
+      <h:inputText value="#{activityControl.activity.type}" type="text" pt:placeholder="Type"/>
+    </fieldset>
+    <fieldset>
+   	 <h:inputTextarea value="#{activityControl.activity.description}" type="text" pt:placeholder="Description ici..."/>
+    </fieldset>
+    <fieldset>
+      <h:commandButton value="Ajouter" action="#{ activityControl.createNewActivity() }"/>		 
+    </fieldset>
+    <input type="reset" value="Reset" />
+  </h:form>
+</div>
+
+<ui:debug/>
+	
+	
+	<button onclick="location.href='menuAdmin.xhtml'">Retour</button>
+	
+	
+	
+	
+    
+</h:body>
+</html>

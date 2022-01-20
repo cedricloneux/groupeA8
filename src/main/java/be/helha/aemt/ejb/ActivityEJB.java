@@ -40,6 +40,11 @@ public class ActivityEJB {
 	    {
 	    	return activityDAO.findActivityByType(type);
 	    }
+	    
+	    public Activity delete(Activity activity)
+	    {
+	    	return activityDAO.delete(activity);
+	    }
 	  	
 	    
 }	

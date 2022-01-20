@@ -23,6 +23,11 @@ public class UserEJB
     {
         return userDAO.findAll();
     }
+    
+    public User getSpecificUser(int id)
+    {
+        return userDAO.read(id);
+    }
 
     public User createUser( String login, String password, String role )
     {
@@ -32,6 +37,14 @@ public class UserEJB
     public User createUser( String login, String password)
     {
         return userDAO.create( new User( login, password) );
+    }
+    
+    public User delete( int id ) {
+    	return userDAO.delete(id);
+    }
+    
+    public User delete( User user ) {
+    	return userDAO.delete(user);
     }
     
 }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <title>admin participations</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet name="css/main.css"/>
+</h:head>
+<h:body>
+
+	<h1>Gestion des participations</h1>
+	
+	<h2>Liste des participations</h2>	
+
+    <h:dataTable value="#{participationControl.showInscriptionList()}"
+                 var="participation" styleClass = "styled-table">
+        <h:column>
+            <f:facet name="header">Id utilisateur</f:facet>
+            #{participation.idUser}
+        </h:column>
+        
+        <h:column>
+            <f:facet name="header">Id activité</f:facet>
+            #{participation.idActivity}
+        </h:column>
+	</h:dataTable>
+	
+	<button onclick="location.href='menuAdmin.xhtml'">Retour</button>
+	
+	<div class="login-box" id="adminAdduser">
+   			<h2>Ajouter une participation</h2>
+			<p:panel header="Login From">
+	  			<h:form>
+	    			<div class="user-box">
+	    				<h:inputText type="number" name="idUser" value="#{participationControl.participation.idUser}"/>
+	    			</div>
+	    			<div class="user-box">
+	      				<h:inputText type="number" name="idActivity" value="#{participationControl.participation.idActivity}"/>
+	    			</div>
+	    			<h:commandButton value="Ajouter" action="#{ participationControl.createNewInscription() }"/>
+       				 <input type="reset" value="Reset" />
+	  			</h:form>
+  			</p:panel>
+		</div>
+	
+	
+    
+</h:body>
+</html>

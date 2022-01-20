@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 import be.helha.aemt.ejb.ActivityEJB;
 import be.helha.aemt.entities.Activity;
+import be.helha.aemt.entities.User;
 
 @Named
 @SessionScoped
@@ -23,12 +24,6 @@ public class ActivityControl implements Serializable {
     private ActivityEJB activityEJB;
     private Activity activity = new Activity();
 
-    
-/*
-    public String showAddPage()
-    {
-        return "/admin/ajoutActivity.xhtml?faces-redirect=true";
-    }*/
 
     public List< Activity > showActivityList()
     {
@@ -51,6 +46,11 @@ public class ActivityControl implements Serializable {
         try
         {
             activityEJB.createActivity( activity.getTitle(), activity.getDescription(), activity.getDate() , activity.getPlace(), activity.getType() );
+            activity.setTitle(null);
+            activity.setDescription(null);
+            activity.setDate(null);
+            activity.setPlace(null);
+            activity.setType(null);
         } catch ( Exception e )
         {
             e.printStackTrace();
@@ -62,7 +62,7 @@ public class ActivityControl implements Serializable {
         return activityEJB.getSpecificActivity( id );
     }
 
-    public Activity getPublication()
+    public Activity getActivity()
     {
         return activity;
     }
@@ -71,5 +71,11 @@ public class ActivityControl implements Serializable {
     {
         this.activity = publication;
     }	
+    
+    public Activity deleteActivity( Activity activity )
+    {
+    	Activity elementDeleted = activityEJB.delete(activity);
+        return elementDeleted;
+    }
 	
 }

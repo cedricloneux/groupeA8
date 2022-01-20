@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Detail activity</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet name="css/main.css"/>
+</h:head>
+
+<h:body>
+	
+	<button onclick="history.back()">Go Back</button>
+	<h1>Détail de l'activité</h1>
+	
+    <h2>Nom: #{activityControl.getSpecificActivity(request.getParameter('id')).title}</h2>
+    <h2>Date: #{activityControl.getSpecificActivity(request.getParameter('id')).date}</h2>
+    <h2>Addresse: #{activityControl.getSpecificActivity(request.getParameter('id')).place}</h2>
+    <h2>Description: #{activityControl.getSpecificActivity(param['id']).description}</h2>
+    <button class="registerBtn" role="button">S'inscrire</button>
+</h:body>
+
+</html>

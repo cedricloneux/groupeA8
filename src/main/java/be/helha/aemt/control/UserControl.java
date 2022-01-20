@@ -9,6 +9,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
+
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
@@ -28,6 +29,10 @@ public class UserControl implements Serializable
     public List< User > showUserList()
     {
         return userEJB.getAllUsers();
+    }
+    
+    public User showUser(Integer id) {
+    	return userEJB.getSpecificUser(id);
     }
 
     public void createNewUser()
@@ -53,6 +58,36 @@ public class UserControl implements Serializable
             e.printStackTrace();
         }
     }
+    
+    public void addNewUser()
+    {
+        try
+        {
+        	// redirect only if register ok and user not yet registerd
+            if ( userEJB.createUser( user.getLogin(), user.getPassword() ) != null ) {
+            	// reload to admin page
+            	user.setLogin(null);
+            	goToAdminPage();
+            }
+            
+        }
+        catch ( Exception e )
+        {
+            e.printStackTrace();
+        }
+    }
+    
+    private void goToAdminPage() {
+    	ExternalContext ec = FacesContext.getCurrentInstance()
+                .getExternalContext();
+        try {
+            ec.redirect(ec.getRequestContextPath()
+                    + "/admin/adminUser.xhtml");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
     public User getUser()
     {
@@ -63,4 +98,15 @@ public class UserControl implements Serializable
     {
         this.user = user;
     }
+    
+    public User deleteUser( User user )
+    {
+    	User userDeleted = userEJB.delete(user);
+        if ( userDeleted != null ) {
+        	// reload to admin page
+        	goToAdminPage();
+        }
+        return userDeleted;
+    }
+    
 }

@@ -93,6 +93,12 @@ public class UserDAO extends DAO< User >
     {
         return super.delete( object );
     }
+    
+    public User delete( int id )
+    {
+        User user = read(id);
+        return delete(user);
+    }
 
     @Override
     public List< User > findAll()

@@ -30,13 +30,13 @@ public class Activity implements Serializable {
     public Activity() {
 
     }
-
-    public Activity(String title, String description, String date, String place, String image) {
+    
+    public Activity(String title, String description, String date, String place, String type) {
         this.title = title;
         this.description = description;
         this.date = date;
         this.place = place;
-        this.image = image;
+        this.type = type;
     }
     
     public Integer getId() {
